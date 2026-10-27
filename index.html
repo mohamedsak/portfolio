@@ -1,0 +1,491 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed Omar — Front-End Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    --bg: #0C1220;
+    --bg-raised: #141B2E;
+    --bg-raised-2: #1A2338;
+    --text: #E9ECF4;
+    --text-muted: #8690AC;
+    --accent: #52D1C2;
+    --accent-soft: rgba(82, 209, 194, 0.12);
+    --warm: #F2A65A;
+    --border: #232D47;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0C1220;
+      --bg-raised: #141B2E;
+      --bg-raised-2: #1A2338;
+      --text: #E9ECF4;
+      --text-muted: #8690AC;
+      --accent: #52D1C2;
+      --warm: #F2A65A;
+      --border: #232D47;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0C1220;
+    --bg-raised: #141B2E;
+    --bg-raised-2: #1A2338;
+    --text: #E9ECF4;
+    --text-muted: #8690AC;
+    --accent: #52D1C2;
+    --warm: #F2A65A;
+    --border: #232D47;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+  /* nav */
+  nav.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 28px;
+    padding-top: calc(16px + env(safe-area-inset-top, 0px));
+    background: rgba(12, 18, 32, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand { font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .brand span { color: var(--accent); }
+  .navlinks { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .navlinks::-webkit-scrollbar { display: none; }
+  .navlinks a {
+    font-size: 13.5px;
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 7px 12px;
+    border-radius: 7px;
+    white-space: nowrap;
+  }
+  .navlinks a:hover { color: var(--text); background: var(--bg-raised-2); }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  section { padding: 76px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2.title { font-size: 34px; margin: 0 0 18px; letter-spacing: -0.01em; }
+  h2.title b { color: var(--accent); font-weight: 600; }
+
+  /* hero */
+  .hero { padding-top: 56px; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  .hero h1 { font-size: 46px; line-height: 1.1; margin: 0 0 6px; letter-spacing: -0.015em; }
+  .hero h1 .last { color: var(--accent); }
+  .role { font-size: 18px; color: var(--text-muted); margin: 0 0 22px; font-style: italic; font-family: 'Space Grotesk', sans-serif; }
+  .intro { font-size: 15.5px; color: var(--text-muted); max-width: 48ch; margin: 0 0 30px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+  .btn {
+    font-size: 14px;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 500;
+  }
+  .btn.primary { background: var(--accent); color: #0C1220; border-color: var(--accent); }
+  .btn:hover { border-color: var(--accent); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 12.5px;
+    padding: 6px 13px;
+    border-radius: 20px;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .portrait-frame {
+    position: relative;
+    aspect-ratio: 4/5;
+  }
+  .portrait-frame::before {
+    content: "";
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+    border: 1.5px solid var(--accent);
+    border-radius: 14px;
+    z-index: 0;
+  }
+  .portrait-frame img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+  }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 44px; align-items: start; }
+  .about-grid p { font-size: 15.5px; color: var(--text-muted); max-width: 54ch; margin: 0 0 16px; }
+  .profile-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px;
+  }
+  .profile-card .pf-label { font-size: 12px; color: var(--accent); margin-bottom: 4px; }
+  .profile-card .pf-row { padding: 14px 0; border-bottom: 1px dashed var(--border); }
+  .profile-card .pf-row:last-child { border-bottom: none; }
+  .profile-card .pf-val { font-size: 14.5px; }
+
+  /* cards grid generic */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card.accent-border { border-color: var(--accent); }
+  .card h3 { font-size: 17px; margin: 0 0 6px; }
+  .card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+  .card .big-num { font-size: 15px; color: var(--accent); font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px; }
+
+  /* education */
+  .edu-card { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; margin-bottom: 16px; }
+  .edu-card h3 { font-size: 19px; margin: 0 0 6px; }
+  .edu-card .edu-sub { color: var(--accent); font-size: 13.5px; margin-bottom: 10px; }
+  .edu-card .edu-org { color: var(--text-muted); font-size: 14px; margin-bottom: 14px; }
+  .edu-card ul { margin: 14px 0 0; padding-left: 18px; color: var(--text-muted); font-size: 14px; }
+  .edu-card li { margin-bottom: 4px; }
+  .edu-card hr { border: none; border-top: 1px solid var(--border); margin: 14px 0 0; }
+
+  /* skills */
+  .skill-card h3 { font-size: 17px; margin: 0 0 10px; }
+  .skill-card p { font-size: 14px; color: var(--text-muted); margin: 0 0 16px; }
+  .skill-card hr { border: none; border-top: 1px solid var(--border); margin: 0 0 14px; }
+  .skill-focus { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; flex-wrap: wrap; }
+  .skill-focus-label { color: var(--accent); font-weight: 500; flex-shrink: 0; }
+  .skill-focus-val { color: var(--text); text-align: right; }
+
+  /* progress bars */
+  .bar-card { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin-bottom: 14px; }
+  .bar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; gap: 12px; flex-wrap: wrap; }
+  .bar-top .name { font-weight: 500; font-size: 15px; }
+  .bar-top .note { font-size: 13px; color: var(--text-muted); }
+  .bar-track { height: 4px; border-radius: 2px; background: var(--border); overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+  .progress-note { font-size: 14.5px; color: var(--text-muted); max-width: 60ch; margin: 0 0 32px; }
+
+  /* work */
+  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+  .work-card { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .work-card.done { border-color: var(--accent); }
+  .work-status { font-size: 11px; padding: 3px 10px; border-radius: 20px; align-self: flex-start; }
+  .work-status.done { background: var(--accent-soft); color: var(--accent); }
+  .work-status.next { background: rgba(242, 166, 90, 0.12); color: var(--warm); }
+  .work-card h3 { font-size: 16px; margin: 0; }
+  .work-card p { font-size: 13.5px; color: var(--text-muted); margin: 0; }
+  .work-stack { font-size: 12px; color: var(--text-muted); margin-top: auto; }
+
+  /* contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .contact-card { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; }
+  .contact-card .c-label { font-size: 12px; color: var(--accent); margin-bottom: 4px; }
+  .contact-card .c-row { margin-bottom: 18px; }
+  .contact-card .c-row:last-child { margin-bottom: 0; }
+  .contact-card a.val { font-size: 15px; text-decoration: none; border-bottom: 1px solid transparent; }
+  .contact-card a.val:hover { border-color: var(--accent); color: var(--accent); }
+  .cta-card { background: var(--bg-raised-2); border: 1px solid var(--accent); border-radius: 12px; padding: 26px 28px; display: flex; flex-direction: column; justify-content: center; }
+  .cta-card h3 { font-size: 24px; margin: 0 0 4px; }
+  .cta-card h3 .hi { color: var(--accent); }
+  .cta-card .handle { color: var(--text-muted); font-size: 13.5px; }
+
+  footer { padding: 32px 0 calc(40px + env(safe-area-inset-bottom, 0px)); text-align: center; color: var(--text-muted); font-size: 12.5px; }
+
+  .page-bg { background: var(--bg); min-height: 100vh; }
+
+  @media print {
+    html, body, * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    html, body, .page-bg { background: var(--bg) !important; }
+    nav.topbar { position: static; }
+
+    .card, .edu-card, .bar-card, .work-card, .contact-card,
+    .profile-card, .cta-card, .portrait-frame, .hero {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .eyebrow, h2.title {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    section {
+      break-inside: avoid-page;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; }
+    .portrait-frame { max-width: 320px; margin: 0 auto; order: -1; }
+    .about-grid, .grid2, .contact-grid { grid-template-columns: 1fr; }
+    h2.title { font-size: 28px; }
+    .hero h1 { font-size: 36px; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bg">
+
+<nav class="topbar">
+  <div class="brand">Mohamed Omar <span>Shahata</span></div>
+  <div class="navlinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#focus">Focus</a>
+    <a href="#progress">Progress</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="home" class="hero">
+    <div>
+      <p class="eyebrow">Front-end developer in progress</p>
+      <h1>Mohamed Omar<br><span class="last">Shahata</span></h1>
+      <p class="role">Front-End Developer — React</p>
+      <p class="intro">Second-year Computer Science student who likes turning a design into something that actually works in the browser. Currently sharpening my React fundamentals and building my first real projects, one at a time.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:m63257804@gmail.com">Get in touch</a>
+        <a class="btn" href="#work">See my work</a>
+      </div>
+      <div class="chips">
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">React</span>
+        <span class="chip">C++</span>
+        <span class="chip">C#</span>
+      </div>
+    </div>
+    <div class="portrait-frame">
+      <img src="mohamed-photo.jpg" alt="Mohamed Omar Shahata">
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="eyebrow">About me</p>
+    <h2 class="title">The <b>developer</b></h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm Mohamed, a second-year Computer Science student at the Egyptian Institute for Science and Technology. I enjoy the front-end side of building software — taking a layout or an idea and turning it into something responsive and clean in the browser.</p>
+        <p>Right now my focus is on strengthening my React fundamentals through the Digital Egypt Pioneers program, while practicing HTML, CSS, JavaScript and problem-solving through small, real projects like this site.</p>
+      </div>
+      <div class="profile-card">
+        <div class="pf-row">
+          <p class="pf-label">Full name</p>
+          <p class="pf-val">Mohamed Omar Mohamed Shahata</p>
+        </div>
+        <div class="pf-row">
+          <p class="pf-label">Role</p>
+          <p class="pf-val">Front-End Developer</p>
+        </div>
+        <div class="pf-row">
+          <p class="pf-label">Stage</p>
+          <p class="pf-val">2nd-year CS student</p>
+        </div>
+        <div class="pf-row">
+          <p class="pf-label">Currently</p>
+          <p class="pf-val">Building my first real projects</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <p class="eyebrow">Education</p>
+    <h2 class="title">Academic <b>background</b></h2>
+    <div class="edu-card">
+      <h3>Computer Science</h3>
+      <p class="edu-sub">2nd-year student</p>
+      <p class="edu-org">Egyptian Institute for Science and Technology</p>
+      <hr>
+      <ul>
+        <li>Studying computer science fundamentals and programming</li>
+        <li>Building a foundation across C++ and C#</li>
+        <li>Focused on front-end development and practical web skills</li>
+      </ul>
+    </div>
+    <div class="edu-card">
+      <h3>React Track</h3>
+      <p class="edu-sub">In progress</p>
+      <p class="edu-org">Digital Egypt Pioneers Initiative (Rowad Masr Al-Raqmeya)</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow">Technical skills</p>
+    <h2 class="title">What I <b>work with</b></h2>
+    <div class="grid2">
+      <div class="card skill-card">
+        <h3>Software Engineering</h3>
+        <p>Strengthening core programming and problem-solving skills through structured coursework.</p>
+        <hr>
+        <div class="skill-focus"><span class="skill-focus-label">Focus</span><span class="skill-focus-val">C++, C#</span></div>
+      </div>
+      <div class="card skill-card">
+        <h3>Web Development</h3>
+        <p>Creating modern, responsive digital experiences for the browser.</p>
+        <hr>
+        <div class="skill-focus"><span class="skill-focus-label">Focus</span><span class="skill-focus-val">HTML, CSS, JavaScript, React</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <p class="eyebrow">Areas of focus</p>
+    <h2 class="title">Where I'm <b>putting the work</b></h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Front-end development</h3>
+        <p>Creating responsive, user-friendly interfaces with HTML, CSS and JavaScript.</p>
+      </div>
+      <div class="card">
+        <h3>Responsive design</h3>
+        <p>Building layouts that hold up cleanly from a phone screen to a desktop.</p>
+      </div>
+      <div class="card">
+        <h3>React fundamentals</h3>
+        <p>Components, props and state — learning by building rather than just reading.</p>
+      </div>
+      <div class="card">
+        <h3>Problem solving</h3>
+        <p>Sharpening logic and structured thinking through C++ and C# coursework.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="progress">
+    <p class="eyebrow">Where things stand</p>
+    <h2 class="title">Current <b>progress</b></h2>
+    <p class="progress-note">No inflated numbers here — just an honest snapshot of what I'm actively working on at this stage.</p>
+    <div class="bar-card">
+      <div class="bar-top"><span class="name">Programming fundamentals</span><span class="note">C++ / C#</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+    </div>
+    <div class="bar-card">
+      <div class="bar-top"><span class="name">Web development</span><span class="note">HTML / CSS / JavaScript</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+    </div>
+    <div class="bar-card">
+      <div class="bar-top"><span class="name">React</span><span class="note">Currently learning — Digital Egypt Pioneers</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>
+    </div>
+    <div class="bar-card">
+      <div class="bar-top"><span class="name">Real project experience</span><span class="note">Building my first portfolio pieces</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <p class="eyebrow">Recent work</p>
+    <h2 class="title">My <b>journey</b></h2>
+    <div class="work-grid">
+      <div class="work-card done">
+        <span class="work-status done">Live</span>
+        <h3>This portfolio</h3>
+        <p>The site you're looking at — built from scratch with HTML, CSS and JavaScript as my first real, shipped project.</p>
+        <span class="work-stack">HTML · CSS · JavaScript</span>
+      </div>
+      <div class="work-card">
+        <span class="work-status next">Coming soon</span>
+        <h3>To-do list app</h3>
+        <p>A small React app to add, complete and remove tasks — my next step in practicing component state.</p>
+        <span class="work-stack">React · JavaScript</span>
+      </div>
+      <div class="work-card">
+        <span class="work-status next">Coming soon</span>
+        <h3>Doctor's Prescription App</h3>
+        <p>Planned: a simple app for a doctor to create and manage patient prescriptions.</p>
+        <span class="work-stack">React · JavaScript</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none;">
+    <p class="eyebrow">Get in touch</p>
+    <h2 class="title">Let's <b>connect</b></h2>
+    <p class="progress-note">Open to internships, learning opportunities and anything that helps me grow as a front-end developer.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="c-row">
+          <p class="c-label">Email</p>
+          <a class="val" href="mailto:m63257804@gmail.com">m63257804@gmail.com</a>
+        </div>
+        <div class="c-row">
+          <p class="c-label">Phone</p>
+          <a class="val" href="tel:+201146471706">01146471706</a>
+        </div>
+        <div class="c-row">
+          <p class="c-label">LinkedIn</p>
+          <a class="val" href="https://www.linkedin.com/in/mohamed-omar-070141375" target="_blank" rel="noopener">linkedin.com/in/mohamed-omar-070141375</a>
+        </div>
+      </div>
+      <div class="cta-card">
+        <h3>Let's <span class="hi">build</span><br>together</h3>
+        <p class="handle">m63257804@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Mohamed Omar Shahata · Front-End Developer
+</footer>
+
+</div>
+</body>
+</html>
+
+</body></html>
